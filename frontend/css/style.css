@@ -1,0 +1,141 @@
+/* ── Reset & base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #dae0e6; color: #1a1a1b; }
+
+/* ── Login page ── */
+.login-page {
+  display: flex; align-items: center; justify-content: center; min-height: 100vh;
+  background: linear-gradient(135deg, #ff6314 0%, #ff4500 100%);
+}
+.login-card {
+  background: #fff; border-radius: 12px; padding: 48px 40px; text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15); max-width: 380px; width: 100%;
+}
+.logo { margin-bottom: 32px; }
+.logo-icon { font-size: 40px; }
+.logo h1 { font-size: 28px; color: #ff4500; margin: 8px 0 12px; }
+.logo p { color: #878a8c; font-size: 15px; line-height: 1.5; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 6px; border: none; cursor: pointer;
+  font-size: 14px; font-weight: 600; text-decoration: none; transition: opacity .15s;
+}
+.btn:hover { opacity: .85; }
+.btn-google {
+  background: #fff; color: #3c4043; border: 1px solid #dadce0;
+  width: 100%; justify-content: center; font-size: 15px; padding: 12px;
+}
+.btn-google:hover { background: #f8f9fa; }
+.btn-primary { background: #ff4500; color: #fff; }
+.btn-ghost { background: transparent; color: #878a8c; border: 1px solid #edeff1; }
+.btn-ghost:hover { background: #f6f7f8; }
+.btn-add { width: 100%; justify-content: center; background: #ff4500; color: #fff; margin-top: 12px; font-size: 13px; }
+
+/* ── Dashboard layout ── */
+.dashboard-page { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 240px; min-height: 100vh; background: #fff; border-right: 1px solid #edeff1;
+  display: flex; flex-direction: column; position: fixed; top: 0; left: 0; bottom: 0;
+}
+.sidebar-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 20px 16px 16px; border-bottom: 1px solid #edeff1;
+}
+.app-name { font-weight: 700; font-size: 16px; color: #ff4500; }
+.sidebar-section { padding: 16px; flex: 1; }
+.sidebar-label { font-size: 11px; font-weight: 700; color: #878a8c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+
+.subreddit-list { list-style: none; }
+.subreddit-list li {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 10px; border-radius: 6px; cursor: pointer; font-size: 14px;
+  transition: background .1s;
+}
+.subreddit-list li:hover { background: #f6f7f8; }
+.subreddit-list li.active { background: #fff4f0; color: #ff4500; font-weight: 600; }
+.subreddit-name { flex: 1; }
+.remove-btn {
+  background: none; border: none; cursor: pointer; color: #878a8c;
+  font-size: 16px; padding: 0 4px; line-height: 1; display: none;
+}
+.subreddit-list li:hover .remove-btn { display: block; }
+.remove-btn:hover { color: #ea0027; }
+
+.sidebar-footer {
+  padding: 16px; border-top: 1px solid #edeff1;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.user-email { font-size: 12px; color: #878a8c; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── Main content ── */
+.main-content {
+  margin-left: 240px; flex: 1; padding: 32px;
+  min-height: 100vh;
+}
+
+.empty-state {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 60vh; color: #878a8c; font-size: 16px;
+}
+
+.digest-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+}
+.digest-header h2 { font-size: 24px; color: #ff4500; }
+.digest-meta { font-size: 12px; color: #878a8c; margin-top: 4px; display: block; }
+.digest-actions { display: flex; gap: 8px; }
+
+.post-list { display: flex; flex-direction: column; gap: 16px; }
+
+.post-card {
+  background: #fff; border-radius: 8px; padding: 16px 20px;
+  border: 1px solid #edeff1; transition: border-color .15s;
+}
+.post-card:hover { border-color: #ff4500; }
+.post-card a { text-decoration: none; color: #1a1a1b; }
+.post-title { font-size: 16px; font-weight: 600; line-height: 1.4; }
+.post-title:hover { color: #ff4500; }
+.post-meta { font-size: 13px; color: #878a8c; margin-top: 6px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.post-flair {
+  background: #ff4500; color: #fff; font-size: 11px; padding: 2px 7px;
+  border-radius: 3px; font-weight: 600;
+}
+.post-body { font-size: 14px; color: #555; margin-top: 8px; line-height: 1.5; }
+
+/* ── Loading ── */
+.loading { text-align: center; padding: 60px; color: #878a8c; font-size: 15px; }
+
+/* ── Toast ── */
+.toast {
+  position: fixed; bottom: 24px; right: 24px;
+  background: #1a1a1b; color: #fff; padding: 12px 20px; border-radius: 8px;
+  font-size: 14px; z-index: 1000; box-shadow: 0 4px 16px rgba(0,0,0,.2);
+  transition: opacity .3s;
+}
+.toast.success { background: #46d160; color: #fff; }
+.toast.error { background: #ea0027; }
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.4);
+  display: flex; align-items: center; justify-content: center; z-index: 500;
+}
+.modal {
+  background: #fff; border-radius: 10px; padding: 28px 32px;
+  width: 360px; box-shadow: 0 8px 32px rgba(0,0,0,.2);
+}
+.modal h3 { font-size: 18px; margin-bottom: 16px; }
+.modal input {
+  width: 100%; border: 1px solid #edeff1; border-radius: 6px;
+  padding: 10px 12px; font-size: 15px; outline: none;
+}
+.modal input:focus { border-color: #ff4500; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.error-text { color: #ea0027; font-size: 13px; margin-top: 6px; }
+
+/* ── Utility ── */
+.hidden { display: none !important; }

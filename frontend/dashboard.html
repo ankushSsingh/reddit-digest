@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reddit Digest</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="dashboard-page">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="logo-icon">&#128240;</span>
+      <span class="app-name">Reddit Digest</span>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Subreddits</div>
+      <ul id="subreddit-list" class="subreddit-list"></ul>
+      <button class="btn btn-add" id="open-add-modal">+ Add Subreddit</button>
+    </div>
+
+    <div class="sidebar-footer">
+      <span id="user-email" class="user-email"></span>
+      <button class="btn btn-ghost" id="logout-btn">Sign out</button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-content">
+    <div id="empty-state" class="empty-state hidden">
+      <p>Select a subreddit from the sidebar to view its digest.</p>
+    </div>
+    <div id="digest-area" class="digest-area hidden">
+      <div class="digest-header">
+        <div>
+          <h2 id="digest-title"></h2>
+          <span id="digest-meta" class="digest-meta"></span>
+        </div>
+        <div class="digest-actions">
+          <button class="btn btn-ghost" id="refresh-btn">&#8635; Refresh</button>
+          <button class="btn btn-primary" id="email-btn">&#9993; Send to Email</button>
+        </div>
+      </div>
+      <div id="post-list" class="post-list"></div>
+    </div>
+    <div id="loading" class="loading hidden">Loading digest&hellip;</div>
+    <div id="toast" class="toast hidden"></div>
+  </main>
+
+  <!-- Add Subreddit Modal -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <h3>Add Subreddit</h3>
+      <input id="subreddit-input" type="text" placeholder="e.g. programming" autocomplete="off" />
+      <div id="add-error" class="error-text hidden"></div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="close-modal">Cancel</button>
+        <button class="btn btn-primary" id="confirm-add">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
