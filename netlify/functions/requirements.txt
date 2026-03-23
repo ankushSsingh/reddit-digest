@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+requests
+google-auth-oauthlib
+google-auth
+itsdangerous
+python-dotenv
+mangum
+psycopg2-binary

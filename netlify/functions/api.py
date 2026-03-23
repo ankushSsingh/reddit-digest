@@ -1,10 +1,14 @@
 import sys
 import os
 
-# Make sure the project root is on the path so backend can be imported
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
+# backend/ is copied alongside this file during the build step (see package.json)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from mangum import Mangum
 from backend.main import app
 
-handler = Mangum(app, lifespan="off")
+_mangum = Mangum(app, lifespan="off")
+
+
+def handler(event, context):
+    return _mangum(event, context)
