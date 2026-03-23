@@ -6,3 +6,5 @@ google-auth-oauthlib
 google-auth
 itsdangerous
 python-dotenv
+mangum
+psycopg2-binary

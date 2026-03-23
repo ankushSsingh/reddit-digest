@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
@@ -12,4 +13,6 @@ app.include_router(auth_router.router, prefix="/api/auth", tags=["auth"])
 app.include_router(subreddits_router.router, prefix="/api/subreddits", tags=["subreddits"])
 app.include_router(digest_router.router, prefix="/api/digest", tags=["digest"])
 
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
+# Only serve static files locally — on Netlify, static files are served by the CDN
+if not os.getenv("NETLIFY"):
+    app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
